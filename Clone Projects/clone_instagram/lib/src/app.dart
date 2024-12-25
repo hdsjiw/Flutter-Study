@@ -1,5 +1,7 @@
 import 'package:clone_instagram/src/components/image_data.dart';
 import 'package:clone_instagram/src/controller/bottom_nav_controller.dart';
+import 'package:clone_instagram/src/pages/home.dart';
+import 'package:clone_instagram/src/pages/search.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,16 +14,11 @@ class App extends GetView<BottomNavController> {
       onWillPop: controller.willPopAction,
       child: Obx(
         () => Scaffold(
-          appBar: AppBar(),
           body: IndexedStack(
             index: controller.pageIndex.value,
             children: [
-              Container(
-                child: Center(child: Text('HOME')),
-              ),
-              Container(
-                child: Center(child: Text('SEARCH')),
-              ),
+              const Home(),
+              const Search(),
               Container(
                 child: Center(child: Text('UPLOAD')),
               ),
